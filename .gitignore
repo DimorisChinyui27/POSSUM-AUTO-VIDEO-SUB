@@ -1,0 +1,4 @@
+.venv
+*.exe
+*.mp4
+venv

@@ -58,6 +58,8 @@ Example of languages:
 
 
 To test using curl 
-!curl -X POST http://127.0.0.1:5000/transcribe -H "Content-Type: application/json" -d "{\"traget_lang\":\"en\", \"filename\":\"netherland.mp4\"}"
+!curl -X POST http://127.0.0.1:5000/transcribe -H "Content-Type: application/json" -d "{\"source_lang\":\"auto\",\"traget_lang\":\"en\", \"filename\":\"netherland.mp4\"}"
 
 
+## supported languages ## 
+![alt text](language-breakdown.png)

@@ -79,7 +79,7 @@ EXPERIMENT_TEMP_FOLDER = 'experiments/'
     :target_lang: target language for subtitles
     :return: describe what it returns
 """ 
-def subtitle_video(model_type, source_video_name, output, target_lang):
+def subtitle_video(model_type, source_video_name, output,source_lang, target_lang):
     ## First, this checks if your expermiment name is taken. If not, it will create the directory.
     ## Otherwise, we will be prompted to retry with a new name
         # Use local clip if not downloading from youtube
@@ -127,9 +127,14 @@ def subtitle_video(model_type, source_video_name, output, target_lang):
     # detect the spoken language
     _, probs = model.detect_language(mel)
 
+    source_lang_code = source_lang
+
+    print('source lang {}'.format(source_lang))
+    if source_lang == 'auto':
     ## get the most probable language code ###
-    source_lang_code = max(probs,key=probs.get)
-    
+        source_lang_code = max(probs,key=probs.get)
+        print('source lang {}'.format(source_lang))
+        print(source_lang_code)
     ## set default task to transcribe ##
     task = 'transcribe'
 
